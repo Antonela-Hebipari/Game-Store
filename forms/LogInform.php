@@ -12,11 +12,11 @@
 	<div class="loginbox">
 	
 		<h1 align="center" style="font-size: 40px"> Log In </h1>
-		<form>
+		<form method="post">
 	       <p> Email: </p>
-			<input type="email" name="" placeholder="Email"><br>
+			<input type="email" name="email" placeholder="Email"><br>
 			<p> Password: </p>
-			<input type="password" name="" placeholder="Password"><br>
+			<input type="password" name="password" placeholder="Password"><br>
 		
 	
 		<input type="submit" name="" value="Log In"><br>

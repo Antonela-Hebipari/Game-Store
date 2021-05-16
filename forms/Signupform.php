@@ -98,15 +98,15 @@
 			<p> Full Name: </p>
             <input type="text" alt="Full Name" name="" placeholder="Full Name" >
             <p> Age: </p>
-            <input type="text" name="" placeholder="Age">
+            <input type="text" name="age" placeholder="Age">
 			<p> Email: </p>
-			<input type="email" name="" placeholder="Email">
+			<input type="email" name="email" placeholder="Email">
 			<p> Address </p>
-			<input type="text" name="" placeholder="Address">
+			<input type="text" name="address" placeholder="Address">
 			<p> Password: </p>
-            <input type="Password" name="" placeholder="Password">
+            <input type="Password" name="password" placeholder="Password">
             <p> Confirm Password</p>
-            <input type="password" name="" placeholder="Password">
+            <input type="password" name="confirmpassword" placeholder="Confrim password">
 			
 			<br>
 		</form>
