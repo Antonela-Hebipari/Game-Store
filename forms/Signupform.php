@@ -88,7 +88,7 @@
 <?php include_once 'Head.html';  ?>
 
 	<div class="loginbox">
-		
+		<br><br>
         <h1 align="center" style=" color: #116466"> Sign Up </h1>
             <font face="Times" size="3">
             <p><marquee style="color: #116466"> Sign up as a client to  have full access to our latest updates  and to be able to order everything from everywhere!</marquee></p>
