@@ -96,7 +96,7 @@
 
 		<form method="post">
 			<p> Full Name: </p>
-            <input type="text" alt="Full Name" name="" placeholder="Full Name" >
+            <input type="text" alt="Full Name" name="name" placeholder="Full Name" >
             <p> Age: </p>
             <input type="text" name="age" placeholder="Age">
 			<p> Email: </p>
@@ -105,7 +105,7 @@
 			<input type="text" name="address" placeholder="Address">
 			<p> Password: </p>
             <input type="Password" name="password" placeholder="Password">
-            <p> Confirm Password</p>
+            <p> Confirm Password:</p>
             <input type="password" name="confirmpassword" placeholder="Confrim password">
 			
 			<br>
