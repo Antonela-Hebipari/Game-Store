@@ -94,11 +94,11 @@
             <p><marquee style="color: #116466"> Sign up as a client to  have full access to our latest updates  and to be able to order everything from everywhere!</marquee></p>
              </font>
 
-		<form method="post">
-			<p> Full Name: </p>
-            <input type="text" alt="Full Name" name="username" placeholder="Full Name" >
+		<form action="../login_signup/signup.php" method="post">
+			<p> Username: </p>
+            <input type="text" name="username" placeholder="Username" >
             <p> Age: </p>
-            <input type="text" name="age" placeholder="Age">
+            <input type="number" name="age" placeholder="Age">
 			<p> Email: </p>
 			<input type="email" name="email" placeholder="Email">
 			<p> Address </p>
@@ -108,12 +108,18 @@
             <p> Confirm Password:</p>
             <input type="password" name="confirmpassword" placeholder="Confrim password">
 			
+			<div class="button">
+			<input type="submit" name="submit" value="Sign Up">
+			</div>
+
 			<br>
 		</form>
-        <div class="button">
-			<input type="submit" value="Sign Up">
-		</div>
-	
+			
+			<?php 
+			if(isset($_GET['message'])){
+				echo '<p>'.$_GET['message'].'</p>';
+			}
+			?>
       
 	</div>   
 	<br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br><br><br>

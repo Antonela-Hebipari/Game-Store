@@ -51,13 +51,14 @@ class signUp{
     }
 
     public function emailExists() {
+        $result;
         //create query 
         $query='SELECT * FROM ' . $this->table . ' WHERE Email=?;';
         
         //prepare statement 
         if(!$stmt= $this->conn->prepare($query)){
-            printf("Error: %s.\n", $stmt->error);
-            exit();
+            $result=true;
+            return $result;
         }
 
         //bind this email to the ? at the query
@@ -65,7 +66,6 @@ class signUp{
 
         //execute query
         $stmt->execute();
-        $result;
 
         if($row=$stmt->fetch(PDO::FETCH_ASSOC)){
             return $row;
@@ -110,14 +110,18 @@ class signUp{
     }
 
     public function createUser(){
+        $result;
         //create query 
         $query='INSERT INTO '.$this->table. ' (Username, Email, Age, Address, Password) 
         VALUES (?, ?, ?, ?, ?);';
         
         //prepare statement 
         if(!$stmt= $this->conn->prepare($query)){
-            printf("Error: %s.\n", $stmt->error);
-            exit();
+            /*true cuz i wanted to keep the same logic as the other functions,
+            meaning its true when sth went wrong
+            */
+            $result=true;
+            return $result;
         }
 
         //hashing the password
@@ -142,17 +146,12 @@ class signUp{
 
             $_SESSION['User_ID']=$userId['User_ID'];
             $_SESSION['Username']=$this->username;
-            echo json_encode(array(
-                'message'=>'User signed up successfully.'
-            ));
-            exit();
-            return true;
-            exit();
+            
+            $result=false;
+            return $result;
         }
-        //print error if sth goes wrong
-        printf("Error: %s.\n", $stmt->error);
-        
-        return false;
-        exit();
+
+        $result=true;
+        return $result;
     }
 }
