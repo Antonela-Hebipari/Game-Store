@@ -14,18 +14,10 @@ $db= $database->connect();
 
 $login=new login($db);
 
-// //user accessed the page the right way
-// if(isset($_POST['submit'])){
-//     code goes here
-// } else{
-//     header('location: ../post/read.php');
-// }
-
-//get raw posted data
-$data=json_decode(file_get_contents("php://input"));
-
-$login->email= $data->email;
-$login->password=$data->password;
+if(isset($_POST['email']) && isset($_POST['password'])){ 
+    
+    $login->email= $_POST['email'];
+    $login->password=$_POST['password'];
 
 if($login->emptyInputLogin()!==false){
     echo json_encode(array(
@@ -43,4 +35,5 @@ if($login->loginUser()){
     echo json_encode(array(
         'message'=>'An error occured, user not logged in.'
     ));
+}
 }

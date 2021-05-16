@@ -14,22 +14,15 @@ $db= $database->connect();
 
 $signup=new signUp($db);
 
-// //user accessed the page the right way
-// if(isset($_POST['submit'])){
-//     code goes here
-// } else{
-//     header('location: ../post/read.php');
-// }
-
-//get raw posted data
-$data=json_decode(file_get_contents("php://input"));
-
-$signup->username= $data->username;
-$signup->email=$data->email;
-$signup->age=$data->age;
-$signup->address=$data->address;
-$signup->password=$data->password;
-$signup->confirmpassword=$data->confirmpassword;
+if(isset($_POST['username']) && isset($_POST['email']) && isset($_POST['age'])
+&& isset($_POST['address']) && isset($_POST['password']) && isset($_POST['confirmpassword'])){ 
+    
+    $signup->username= $_POST['username'];
+    $signup->email=$_POST['email'];
+    $signup->age=$_POST['age'];
+    $signup->address=$_POST['address'];
+    $signup->password=$_POST['password'];
+    $signup->confirmpassword=$data->confirmpassword;
 
 //check if what i get is anything besides false
 if($signup->emptyInputSignup()!==false){
@@ -82,5 +75,12 @@ if($signup->createUser()){
 } else{
     echo json_encode(array(
         'message'=>'An error occured, user not signed up.'
+    ));
+}
+
+
+} else {
+    echo json_encode(array(
+        'message'=>'An error occured..'
     ));
 }
