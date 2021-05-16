@@ -96,7 +96,7 @@
 
 		<form method="post">
 			<p> Full Name: </p>
-            <input type="text" alt="Full Name" name="name" placeholder="Full Name" >
+            <input type="text" alt="Full Name" name="username" placeholder="Full Name" >
             <p> Age: </p>
             <input type="text" name="age" placeholder="Age">
 			<p> Email: </p>
