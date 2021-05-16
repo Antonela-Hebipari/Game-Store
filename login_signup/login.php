@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
     $login->password=$_POST['password'];
     
     if($login->emptyInputLogin()!==false){
-        header("location: ../forms/LogInform.php?message=Fill%20Fields");
+        header("location: ../forms/LogInform.php?message2=Fill%20Fields");
         exit();
     }
     
