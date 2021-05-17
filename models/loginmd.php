@@ -18,18 +18,21 @@ class login{
         $result;
         if(empty($this->email) || empty($this->password) ){
             $result=true;
+            return $result;
         }
         if($this->email==" " || $this->password==" " ){
             $result=true;
+            return $result;
         }
         else{ 
             $result=false;
+            return $result;
         }
 
-        return $result;
     }
 
     public function loginUser(){
+        $result;
         $signup=new signUp($this->conn);
 
         $signup->email=$this->email;
@@ -38,29 +41,24 @@ class login{
         $uexists=$signup->emailExists();
 
         if($uexists === false){
-            echo json_encode(array(
-                'message'=>'Email does not exist, try again.'
-            ));
-            exit();
+            $result=true;
+            return $result;
         }
-
-        //if i am here that means the email does exist, so i check the password
-        $hashedpass=$uexists['password'];
-        $checkpass=password_verify($this->password, $hashedpass);
-
-        if($checkpass===false){
-            echo json_encode(array(
-                'message'=>'Incorrect password, try again.'
-            ));
-            exit();
-        } else if($checkpass===true){
-            session_start();
-            $_SESSION['User_ID']=$uexists['User_ID'];
-            $_SESSION['Username']=$uexists['Username'];
-            echo json_encode(array(
-                'message'=>'User logged in successfully.'
-            ));
-            exit();
+        else {
+            //if i am here that means the email does exist, so i check the password
+            $hashedpass=$uexists['Password'];
+            $checkpass=password_verify($this->password, $hashedpass);
+            
+            if($checkpass===false){
+                $result=true;
+                return $result;    
+            } else if($checkpass===true){
+                session_start();
+                $result=false;
+                $_SESSION['User_ID']=$uexists['User_ID'];
+                $_SESSION['Username']=$uexists['Username'];
+                return $result;
+            }
         }
     }
 }
