@@ -1,5 +1,5 @@
       <!--Header-->
-
+<?php session_start(); ?>
 <html>
     <head>
         <title>Homepage</title>
@@ -40,10 +40,18 @@
                
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="LogInform.php">Log In</a>
+                  <?php 
+                if(isset($_SESSION['Username'])){
+                  echo '<a class="nav-link active" aria-current="page" href="#">'.$_SESSION['Username'].'</a>';
+                } else echo '<a class="nav-link active" aria-current="page" href="LogInform.php"> Log In </a>';  
+                ?>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="Signupform.php">Sign Up</a>
+              <?php 
+                if(isset($_SESSION['Username'])){
+                  echo '<a class="nav-link active" aria-current="page" href="../login_signup/logout.php">Logout </a>';
+                } else echo '<a class="nav-link active" aria-current="page" href="Signupform.php"> Sign Up </a>';  
+                ?>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-shopping-cart"></i></a>

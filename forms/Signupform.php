@@ -51,41 +51,29 @@
 
 		.button
 		{
-			
-			
-			
+
             margin-left: 100px;
             border: none;
-            
-            
             text-align: center;
-            
             display: inline-block;
-  
-			
 		}
+
 	input[type="submit"]{
 		background-color: #116466;
 		font-size: 20px;
 		color: white;
 		border-radius: 8px;
 		padding: 2px 30px;
-
-
-
 	}
 		::placeholder {
-            color: #2c3531
-            
+            color: #2c3531  
         }
-	
-        
-    
+ 
 	</style>
 </head>
 <body>
 
-<?php include_once 'Head.html';  ?>
+<?php include_once 'Header.php';  ?>
 
 	<div class="loginbox">
 		<br><br>
@@ -125,8 +113,4 @@
 	<br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br><br><br>
 
 		<?php include_once 'Footer.html' ;  ?>  
-	
-	
-</body>
 
-</html> 

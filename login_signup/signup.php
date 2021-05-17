@@ -51,8 +51,8 @@ if(isset($_POST['submit'])){
     
     //if i am here that means that the user made no misttakes, so i sign up the user
     if($signup->createUser()!==false){
-        header("location: ../forms/Signupform.php?message=NOPE");
+        header("location: ../forms/Signupform.php?message=ERROR");
     } else{
-        header("location: ../forms/Signupform.php?message=Success");
+        header("location: ../forms/Body.php?message=Success");
     }
 }

@@ -12,9 +12,6 @@ class logout{
         session_start();
         session_unset();
         session_destroy();
-        echo json_encode(array(
-            'message'=>'User logged out successfully.'
-        ));
-        exit();
+        return true;
     }
 }

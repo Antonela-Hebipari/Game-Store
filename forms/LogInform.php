@@ -2,12 +2,9 @@
 <html>
 <head>
 	<title> </title>
-	<link rel="stylesheet" href="style log in.css">
-		
-		
-	
+	<link rel="stylesheet" href="style log in.css">	
+	<?php include_once 'Header.php';  ?>
 </head>
-<?php include_once 'Head.html';  ?>
 <body>
 	<div class="loginbox">
 	
@@ -29,7 +26,4 @@
 	</div>
 	<br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br>
 
-		<?php include_once 'Footer.html' ;  ?>  		
-			
-</body>
-</html> 
+		<?php include_once 'Footer.html' ;  ?>

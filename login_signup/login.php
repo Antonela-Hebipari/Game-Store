@@ -21,8 +21,8 @@ if(isset($_POST['submit'])){
     
     //if i am here that means that the user made no misttakes, so i log in the user
     if($login->loginUser()!==false){
-        header("location: ../forms/LogInform.php?message2=NOPE");
+        header("location: ../forms/LogInform.php?message2=ERROR");
     } else{
-        header("location: ../forms/LogInform.php?message2=Success");
+        header("location: ../forms/Body.php?message2=Success");
     }
 }

@@ -13,8 +13,6 @@ $database= new database();
 $db= $database->connect();
 
 $logout= new logout($db);
-if(!$logout->logoutUser()){
-    echo json_encode(array(
-        'message'=>'An error occured, user not logged out.'
-    ));
+if($logout->logoutUser()){
+    header("location: ../forms/Body.php?message=Success");
 }
