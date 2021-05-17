@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
     }
     
     if($signup->passwordLength()!==false){
-        header("location: ../forms/Signupform.php?message=Password%20too%20short");
+        header("location: ../forms/ForgotPasswordform.php?message=Password%20too%20short");
         exit();
     } 
     
