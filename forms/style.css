@@ -134,6 +134,7 @@ margin-top: 10px;
 
 .title-box h2{
 font-size: 24px;
+margin-top: 0px;
 }
 
 .title-box::after{
