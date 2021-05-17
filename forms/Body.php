@@ -13,7 +13,7 @@
 <body>
 <?php
 
-readfile('Head.html');
+include_once 'Head.html'; 
 ?>
 
 
@@ -31,18 +31,18 @@ readfile('Head.html');
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="game1.jpg" alt="DragonAge" style="width:100%;">
+        <img src="./ProductImages/game1.jpg" alt="DragonAge" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="game2.jpg" alt="TheSims4" style="width:100%; height:695px">
+        <img src="./ProductImages/game2.jpg" alt="TheSims4" style="width:100%; height:695px">
       </div>
     
       <div class="item">
-        <img src="game3.jpg" alt="Bastion" style="width:100%; height:700px">
+        <img src="./ProductImages/game3.jpg" alt="Bastion" style="width:100%; height:700px">
       </div>
       <div class="item">
-        <img src="game4.jpg" alt="Skyrim" style="width:100%; height:700px">
+        <img src="./ProductImages/game4.jpg" alt="Skyrim" style="width:100%; height:700px">
       </div>
     </div>
 
@@ -57,11 +57,6 @@ readfile('Head.html');
     </a>
     <h5 class="titleh5">FEATURED & RECOMMENDED</h5>
   </div>
-  
-
-
-
-
             </div>
            
             
@@ -89,7 +84,7 @@ readfile('Head.html');
          <div class="row">
            <div class="col-md-3">
              <div class="product-top">
-               <img src="game13.jpg">
+               <img src="./ProductImages/game13.jpg">
                <div class="overlay-right">
                </div>
              </div>
@@ -100,7 +95,7 @@ readfile('Head.html');
            </div>
            <div class="col-md-3">
             <div class="product-top">
-              <img src="game14.jpg">
+              <img src="./ProductImages/game14.jpg">
               <div class="overlay-right">
               </div>
             </div>
@@ -111,7 +106,7 @@ readfile('Head.html');
           </div>
           <div class="col-md-3">
             <div class="product-top">
-              <img src="game15.png">
+              <img src="./ProductImages/game15.png">
               <div class="overlay-right">
               </div>
             </div>
@@ -122,7 +117,7 @@ readfile('Head.html');
           </div>
           <div class="col-md-3">
             <div class="product-top">
-              <img src="game16.png">
+              <img src="./ProductImages/game16.png">
               <div class="overlay-right">
               </div>
             </div>
@@ -144,7 +139,7 @@ readfile('Head.html');
         <div class="row">
           <div class="col-md-3">
             <div class="product-top">
-              <img src="game20.jpg">
+              <img src="./ProductImages/game20.jpg">
               <div class="overlay-right">
               </div>
             </div>
@@ -155,7 +150,7 @@ readfile('Head.html');
           </div>
           <div class="col-md-3">
            <div class="product-top">
-             <img src="game21.png">
+             <img src="./ProductImages/game21.png">
              <div class="overlay-right"></div>
            </div>
            <div class="product-bottom text center">
@@ -165,7 +160,7 @@ readfile('Head.html');
          </div>
          <div class="col-md-3">
            <div class="product-top">
-             <img src="game22.png">
+             <img src="./ProductImages/game22.png">
              <div class="overlay-right"></div>
            </div>
            <div class="product-bottom text center">
@@ -175,7 +170,7 @@ readfile('Head.html');
          </div>
          <div class="col-md-3">
            <div class="product-top">
-             <img src="game23.jpg">
+             <img src="./ProductImages/game23.jpg">
              <div class="overlay-right">
              </div>
            </div>
@@ -187,6 +182,7 @@ readfile('Head.html');
         </div>
       </div>
     </section>
-    <?php readfile('Footer.html');?>
+    
+    <?php include_once 'Footer.html' ; ?>
     </body>
     </html>
