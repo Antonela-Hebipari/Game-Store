@@ -17,7 +17,7 @@
 			<input type="password" name="password" placeholder="Password"><br>
 			<input type="submit" name="submit" value="Log In"><br>
 			</form>
-			
+			<a style="color:#66fcf1" href="ForgotPasswordform.php"> Forgot Password? </a>
 			<?php 
 			if(isset($_GET['message2'])){
 				echo '<p>'.$_GET['message2'].'</p>';
