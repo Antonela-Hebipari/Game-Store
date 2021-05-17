@@ -40,38 +40,24 @@ body {
 			
 			opacity: 0.7;
 		}
+
 		.button
 		{
-			
-			
-			
             margin-left: 100px;
             border: none;
-            
-            
             text-align: center;
-            
             display: inline-block;
 		}
-  
-      
-
         
-         input[type="submit"]{
-			
-			background-color: #116466;
+         input[type="submit"]{	
+		background-color: #116466;
 		font-size: 20px;
 		color: white;
 		border-radius: 8px;
 		padding: 2px 30px;
-
-
 		}
         
 		
         ::placeholder {
             color: #2c3531;
-         
 		}
-			
-		

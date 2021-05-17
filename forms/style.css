@@ -3,21 +3,24 @@
   padding: 0;
   box-sizing:border-box
 }
+
 body{
   font-family: sans-serif;
   margin: 0;
   padding: 0;
   background-color: #002930 !important;
 }
+
 .titleh5{
 font-family: italic;
-padding-left: 250px;
+padding-left: 260px;
 color: #e9f1ef;
-
 }
+
 .home{
 padding-left: 130px;
 }
+
 .login{
 padding-left: 450px;
 }
@@ -32,37 +35,34 @@ padding-left: 450px;
   background-image: linear-gradient(#000d10,#002930,#0091ab);
   padding: 5 !important;
   overflow: hidden;
-  
 }
-
-
-
 
 .navbar-nav li a{
   color: #fff !important;
   font-weight: 600;
 }
 
-
-
-
 /* Body Part */
 
 .slider{
 width: 100%; 
 }
+
 .carousel{
 box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.5);
 }
+
 .carousel-indicators{
 z-index: 1 !important;
 }
+
 @media only screen and(max-width: 980px){
 .slider{
   width: 100%;
   margin-left: 0;
 }
 }
+
 /* The category bar*/
 select{
 -webkit-appearance:none;
@@ -82,11 +82,12 @@ font-size: 1em;
 font-family:sans-serif;
 text-align: center;
 padding-top: 5px;
-
 }
+
 select::-ms-expand{
 display: none;
 }
+
 .select{
 font-family: italic;
 position: relative;
@@ -110,13 +111,14 @@ cursor: pointer;
 pointer-events: none;
 transition: .25 all ease;
 }
-.select:hover::after{
-color: #23b499;
-}
+
 .select:hover::after{
 color: #23b499;
 }
 
+.select:hover::after{
+color: #23b499;
+}
 
 /* Products*/
 .title-box{
@@ -129,9 +131,11 @@ margin-bottom: 30px;
 display: flex;
 margin-top: 10px;
 }
+
 .title-box h2{
 font-size: 24px;
 }
+
 .title-box::after{
 content: '';
 border-top: 40px solid #1a1a1d ;
@@ -141,14 +145,17 @@ display: flex;
 margin-top: -4px;
 margin-left: 170px;
 }
+
 .product-top img{
 width: 250px;
 height: 325px;
 cursor: pointer;
 }
+
 .product-top img:hover{
 transform: scale(1.1);
 }
+
 .overlay-right{
 display: block;
 opacity: 0;
@@ -157,6 +164,7 @@ top: 10%;
 margin-left: 0;
 width: 70px;
 }
+
 .overlay-right .fa{
 cursor: pointer;
 background-color: #fff;
@@ -168,21 +176,25 @@ padding: 7px;
 margin-top: 5%;
 margin-bottom: 5%;
 }
+
 .overlay-right .btn-secondary{
 background: none !important;
 border: none !important;
 box-shadow: none !important;
 }
+
 .product-top:hover .overlay-right
 {
 opacity: 1;
 margin-left: 5%;
 transition: 0.5s;
 }
+
 .product-bottom .fa{
 color:white;
 font-size: 10px;
 }
+
 .product-bottom h3{
 padding-top: 10px;
 text-align: center;
@@ -190,12 +202,14 @@ font-size: 20px;
 font-weight: bold;
 color: white;
 }
+
 .product-bottom h5{
 text-align: center;
 font-size: 15px;
 padding-bottom: 10px;
 color: white;
 }
+
 /* Footer Part*/
 footer {
 clear: both;
