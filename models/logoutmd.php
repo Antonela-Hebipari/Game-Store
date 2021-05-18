@@ -9,9 +9,12 @@ class logout{
     }
 
     public function logoutUser(){
-        session_start();
-        session_unset();
-        session_destroy();
-        return true;
+        
+        if(session_start()) {
+            session_unset();
+            session_destroy();
+            return false;
+        }
+        else return true;
     }
 }
