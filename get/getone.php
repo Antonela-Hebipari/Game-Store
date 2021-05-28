@@ -21,7 +21,7 @@ if($product->getGamesById()===true){
         'message'=> 'Error...'
     ));
 }
-
+ 
 //create an array (cuz we want json data)
 $product_arr=array(
     'product_id'=> $product->product_id,
