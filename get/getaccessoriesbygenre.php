@@ -10,7 +10,6 @@ include_once '../models/getproducts.php';
 $database= new database();
 $db= $database->connect();
 
-// instantiate blog post object
 $products= new Products($db);
 
 $products->genre= isset($_GET['genre']) ? $_GET['genre'] : die();

@@ -1,1 +1,1 @@
-Added login and sign up logic
+Eshte perfunduar login, sign up logout. Po punohet per interaktivitetin e faqes.
