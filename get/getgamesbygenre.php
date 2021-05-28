@@ -13,13 +13,15 @@ $db= $database->connect();
 // instantiate blog post object
 $products= new Products($db);
 
-//blog products query
-if($products->getAllProducts()===true){
+$products->genre= isset($_GET['genre']) ? $_GET['genre'] : die();
+
+if($products->getGamesByGenre()===true){
     echo json_encode(array(
         'message'=> 'Error...'
     ));
 }
-$result = $products->getAllProducts();
+
+$result = $products->getGamesByGenre();
 
 //get row count
 $num= $result->rowCount();
@@ -37,6 +39,7 @@ if($num>0){
 
         $products_item=array(
             'product_id'=> $product_id,
+            'genre'=> $genre,
             'product_name'=> $product_name,
             'price'=> $price,
             'image'=> base64_encode($image)
@@ -48,8 +51,9 @@ if($num>0){
     
     //turn to json and output
     echo json_encode($products_arr);
+
 } else {
     // no productss
-    echo json_encode(array('message'=> 'No productss found.'));
+    echo json_encode(array('message'=> 'No products found.'));
 }
 ?>
