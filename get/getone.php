@@ -16,7 +16,7 @@ $product= new Products($db);
 $product->product_id= isset($_GET['product_id']) ? $_GET['product_id'] : die();
 
 //get the product
-if($product->getProductById()===true){
+if($product->getGamesById()===true){
     echo json_encode(array(
         'message'=> 'Error...'
     ));

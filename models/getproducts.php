@@ -43,7 +43,7 @@ class Products{
         else return $stmt;
     }
 
-    public function getProductById(){
+    public function getGamesById(){
         //create query 
         $query='SELECT pr.product_name, pr.price, pr.description, pr.product_id, 
         sf.ram, sf.graphics_card, sf.processor, sf.operating_system
@@ -75,5 +75,7 @@ class Products{
         $this->operating_system=$row['operating_system'];
         
     }
+
+    
 }
 ?>
