@@ -14,7 +14,7 @@ $price=$_POST['price'];
 $ram=$_POST['ram'];
 $graphics_card=$_POST['graphics_card'];
 $processor=$_POST['processor'];
-$operating_system=$_POST['opperating_system'];
+$operating_system=$_POST['operating_system'];
 
 //if its an accessory
 $acc_type=$_POST['acc_type'];
@@ -32,8 +32,7 @@ if($picture_type=="image/jpeg" || $picture_type=="image/jpg" || $picture_type=="
 		$pic_name=time()."_".$picture_name;
 		move_uploaded_file($picture_tmp_name,"../forms/ProductImages/".$pic_name);
 		
-mysqli_query($con,"insert into products (product_cat, product_brand,product_title,product_price, product_desc, product_image,product_keywords) values ('$product_type','$brand','$product_name','$price','$description','$pic_name','$tags')") or die ("query incorrect");
-$query='INSERT INTO products (product_name, description, price, image)  VALUES (?, ?, ?, ?)';
+$query='INSERT INTO products (product_name, description, price, image, image_name)  VALUES (?, ?, ?, ?,?)';
 
 $stmt= $con->prepare($query);
 
@@ -41,7 +40,8 @@ $stmt= $con->prepare($query);
 $stmt->bindParam(1,$product_name);
 $stmt->bindParam(2,$description);
 $stmt->bindParam(3,$price);
-$stmt->bindParam(4,$pic_name);
+$stmt->bindParam(4,$picture_name);
+$stmt->bindParam(5,$pic_name);
 
 $result=$stmt->execute() or die ("query 1 incorrect.....");
 
@@ -112,29 +112,43 @@ include "topheader.php";
                     
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Product Category</label>
-                        <input type="number" id="product_type" name="product_type" required="[1-6]" class="form-control">
+                        <label>Ram</label>
+                        <input type="number" id="ram" name="ram" class="form-control">
                       </div>
                     </div>
+
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="">Product Brand</label>
-                        <input type="number" id="brand" name="brand" required class="form-control">
+                        <label for="">Operating System</label>
+                        <input type="text" id="operating_system" name="operating_system" class="form-control">
                       </div>
                     </div>
-                     
-                  
+
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Product Keywords</label>
-                        <input type="text" id="tags" name="tags" required class="form-control" >
+                        <label for="">Processor</label>
+                        <input type="text" id="processor" name="processor" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="">Graphics Card</label>
+                        <input type="text" id="graphics_card" name="graphics_card" class="form-control">
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="">Accessory type (If it's an accessory)</label>
+                        <input type="number" id="acc_type" name="acc_type" class="form-control">
                       </div>
                     </div>
                   </div>
-                
               </div>
               <div class="card-footer">
-                  <button type="submit" id="btn_save" name="btn_save" required class="btn btn-fill btn-primary">Update Product</button>
+                  <button type="submit" id="btn_save" name="btn_save" required class="btn btn-fill btn-primary">Add Product</button>
               </div>
             </div>
           </div>
