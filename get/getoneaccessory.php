@@ -34,8 +34,6 @@ if(isset($_GET['isacc'])){
         'image'=> $product->image
     );
 
-    //make json
-    print_r(json_encode($product_arr));
     
 } else 
 echo json_encode(array(

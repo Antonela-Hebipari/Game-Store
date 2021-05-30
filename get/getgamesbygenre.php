@@ -42,16 +42,13 @@ if($num>0){
             'genre'=> $genre,
             'product_name'=> $product_name,
             'price'=> $price,
-            'image'=> base64_encode($image)
+            'image'=> $image
         );
 
         //push to "data"
         array_push($products_arr['data'], $products_item);
     }
     
-    //turn to json and output
-    echo json_encode($products_arr);
-
 } else {
     // no productss
     echo json_encode(array('message'=> 'No products found.'));

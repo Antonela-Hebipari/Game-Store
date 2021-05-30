@@ -40,7 +40,5 @@ if(isset($_SESSION['User_ID'])){
             'email'=> $email
         );
     
-        //make json
-        print_r(json_encode($user_arr));
 } else header("location: ../forms/LogInform.php?message2=User%20Not%20Logged%20in");
 ?>

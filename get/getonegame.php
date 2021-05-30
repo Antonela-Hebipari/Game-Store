@@ -23,7 +23,7 @@ if(isset($_GET['isgame'])) {
         ));
     }
     
-    //create an array (cuz we want json data)
+    //create an array
     $product_arr=array(
         'product_id'=> $product->product_id,
         'product_name'=> $product->product_name,

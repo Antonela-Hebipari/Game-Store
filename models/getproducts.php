@@ -72,7 +72,7 @@ class Products{
         $this->price=$row['price'];
         $this->description=$row['description'];
         $this->genre=$row['genre'];
-        $this->image=base64_encode($row['image']);
+        $this->image=$row['image'];
         $this->ram=$row['ram'];
         $this->graphics_card=$row['graphics_card'];
         $this->processor=$row['processor'];
@@ -108,7 +108,7 @@ class Products{
         $this->product_name=$row['product_name'];
         $this->price=$row['price'];
         $this->description=$row['description'];
-        $this->image=base64_encode($row['image']);
+        $this->image=$row['image'];
         $this->acc_type_name=$row['acc_type_name'];
         $this->quantity=$row['quantity'];
     }

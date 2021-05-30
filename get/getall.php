@@ -39,7 +39,7 @@ if($num>0){
             'product_id'=> $product_id,
             'product_name'=> $product_name,
             'price'=> $price,
-            'image'=> base64_encode($image)
+            'image'=> $image
         );
 
         //push to "data"
@@ -50,6 +50,6 @@ if($num>0){
     echo json_encode($products_arr);
 } else {
     // no productss
-    echo json_encode(array('message'=> 'No productss found.'));
+    echo json_encode(array('message'=> 'No products found.'));
 }
 ?>
