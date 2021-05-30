@@ -42,6 +42,7 @@ if($num>0){
             'genre'=> $genre,
             'product_name'=> $product_name,
             'price'=> $price,
+            'image_name'=> $image_name,
             'image'=> $image
         );
 

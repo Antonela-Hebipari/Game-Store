@@ -41,7 +41,8 @@ if($num>0){
             'product_name'=> $product_name,
             'acc_type_name'=> $acc_type_name,
             'price'=> $price,
-            'image'=> base64_encode($image)
+            'image_name'=> $image_name,
+            'image'=> $image
         );
 
         //push to "data"

@@ -34,6 +34,7 @@ if(isset($_GET['isgame'])) {
         'processor'=> $product->processor,
         'graphics_card'=> $product->graphics_card,
         'operating_system'=> $product->operating_system,
+        'image_name'=> $product->image_name,
         'image'=> $product->image
     );
 

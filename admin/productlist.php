@@ -8,6 +8,23 @@ error_reporting(0);
 if(isset($_GET['action']) && $_GET['action']!="" && $_GET['action']=='delete')
 {
 $product_id=$_GET['product_id'];
+
+$query='SELECT image, image_name from products where product_id=?';
+
+$stmt= $con->prepare($query);
+$stmt->bindParam(1,$product_id);
+
+$result=$stmt->execute() or die ("query 1 incorrect.....");
+
+list($picture)=$stmt->fetch(PDO::FETCH_BOTH);
+
+$path="../forms/ProductImages/$picture";
+
+if(file_exists($path)==true)
+{
+  unlink($path);
+}
+
 /*this is delete query*/
 $query='DELETE FROM products WHERE product_id=?';
 $stmt= $con->prepare($query);
@@ -49,18 +66,19 @@ include "topheader.php";
                       <tr><th>Image</th><th>Id</th><th>Name</th><th>Description</th><th>Price</th> 
                       <th> <a class=" btn btn-primary" href="addproduct.php">Add New</a></th></tr></thead>
                     <tbody>
-                      <?php 
-                      $query='SELECT pr.image, pr.product_id, pr.product_name, pr.description, pr.price FROM products pr Limit ' .$page1. ',12;';
+                     
+                     <?php 
+                      $query='SELECT pr.image, pr.image_name, pr.product_id, pr.product_name, pr.description, pr.price FROM products pr Limit ' .$page1. ',12;';
                       $stmt= $con->prepare($query);
               
                         $result=$stmt->execute() or die ("query 1 incorrect.....");
 
-                        while(list($image, $product_id, $product_name, $description, $price)=$stmt->fetch(PDO::FETCH_BOTH))
+                        while(list($image, $image_name, $product_id, $product_name, $description, $price)=$stmt->fetch(PDO::FETCH_BOTH))
                         {
+                          $encodedData =  base64_encode($image);
+                          file_put_contents('../forms/ProductImages/'.$image_name, base64_decode($encodedData));
 
-                          file_put_contents('../forms/ProductImages/image.png', base64_decode($image));
-
-                          echo "<tr><td> <img src='../forms/ProductImages/image.png' style='width:50px; height:50px; border:groove #000'> </td><td>$product_id</td> <td>$product_name</td> <td>$description</td> <td>$price</td>
+                          echo "<tr><td> <img src='../forms/ProductImages/$image_name' style='width:50px; height:50px; border:groove #000'> </td><td>$product_id</td> <td>$product_name</td> <td>$description</td> <td>$price</td>
                         <td>
                         <a class=' btn btn-success' href='productlist.php?product_id=$product_id&action=delete'>Delete</a>
                         </td></tr>";
@@ -84,7 +102,7 @@ include "topheader.php";
                  <?php 
       
                  //counting paging
-                $query='SELECT pr.image, pr.product_id, pr.product_name, pr.description, pr.price FROM products pr';
+                $query='SELECT pr.image, pr.image_name, pr.product_id, pr.product_name, pr.description, pr.price FROM products pr';
                 $stmt= $con->prepare($query);
                 $stmt->execute();
                 $count= $stmt->rowCount();

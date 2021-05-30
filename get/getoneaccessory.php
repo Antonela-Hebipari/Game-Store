@@ -31,6 +31,7 @@ if(isset($_GET['isacc'])){
         'price'=> $product->price,
         'acc_type_name'=> $product->acc_type_name,
         'quantity'=> $product->quantity,
+        'image_name'=> $product->image_name,
         'image'=> $product->image
     );
 

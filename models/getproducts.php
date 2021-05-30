@@ -10,6 +10,7 @@ class Products{
     public $description;
     public $price;
     public $image;
+    public $image_name;
     
     //if its a game
     public $code_s;
@@ -29,7 +30,7 @@ class Products{
     public function getAllProducts(){
         $result;
         //create query 
-        $query='SELECT pr.product_name, pr.price, pr.product_id, pr.image FROM ' . $this->table. ' pr';
+        $query='SELECT pr.product_name, pr.price, pr.product_id, pr.image, pr.image_name FROM ' . $this->table. ' pr';
 
         //prepare statement 
         $stmt= $this->conn->prepare($query);
@@ -47,7 +48,7 @@ class Products{
     public function getGamesById(){
         $result;
         //create query 
-        $query='SELECT pr.product_name, pr.price, pr.description, pr.product_id, pr.image, 
+        $query='SELECT pr.product_name, pr.price, pr.description, pr.product_id, pr.image, pr.image_name,  
         sf.ram, sf.graphics_card, sf.processor, sf.operating_system, vg.genre
         FROM  products pr JOIN software_requirements sf ON sf.product_id=pr.product_id JOIN video_games vg
         ON vg.product_id=pr.product_id WHERE pr.product_id=?;';
@@ -73,6 +74,7 @@ class Products{
         $this->description=$row['description'];
         $this->genre=$row['genre'];
         $this->image=$row['image'];
+        $this->image_name=$row['image_name'];
         $this->ram=$row['ram'];
         $this->graphics_card=$row['graphics_card'];
         $this->processor=$row['processor'];
@@ -83,7 +85,7 @@ class Products{
     public function getAccessioriesById(){
         $result;
         //create query 
-        $query='SELECT pr.product_name, pr.price, pr.description, pr.product_id, pr.image, 
+        $query='SELECT pr.product_name, pr.price, pr.description, pr.product_id, pr.image, pr.image_name, 
         acc.quantity, acct.acc_type_name
         FROM  products pr JOIN accessories acc ON acc.product_id=pr.product_id JOIN accessory_type acct
         ON acct.acc_type=acc.acc_type
@@ -109,6 +111,7 @@ class Products{
         $this->price=$row['price'];
         $this->description=$row['description'];
         $this->image=$row['image'];
+        $this->image_name=$row['image_name'];
         $this->acc_type_name=$row['acc_type_name'];
         $this->quantity=$row['quantity'];
     }
@@ -116,7 +119,7 @@ class Products{
     public function getGamesByGenre(){
         $result;
         //create query 
-        $query="SELECT pr.product_name, pr.price, pr.product_id, pr.image, vg.genre 
+        $query="SELECT pr.product_name, pr.price, pr.product_id, pr.image, pr.image_name, vg.genre 
         FROM video_games vg JOIN products pr ON vg.product_id=pr.product_id  
         WHERE vg.genre LIKE '%". $this->genre ."%' ";
         
@@ -135,7 +138,7 @@ class Products{
     public function getAccessoriesByGenre(){
         $result;
         //create query 
-        $query="SELECT pr.product_name, pr.price, pr.product_id, pr.image, acct.acc_type_name 
+        $query="SELECT pr.product_name, pr.price, pr.product_id, pr.image, pr.image_name, acct.acc_type_name 
         FROM  products pr JOIN accessories acc ON acc.product_id=pr.product_id JOIN accessory_type acct
         ON acct.acc_type=acc.acc_type   
         WHERE acct.acc_type_name LIKE '%". $this->genre ."%' ";
@@ -151,7 +154,6 @@ class Products{
         }
         return $stmt;
     }
-
 
 
 }
