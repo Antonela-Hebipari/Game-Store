@@ -1,6 +1,5 @@
-<?php
-include_once 'Header.php'; 
-?>
+<?php include_once 'Header.php';  ?>
+
 
 <div class="slider">
   
@@ -16,18 +15,18 @@ include_once 'Header.php';
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="./ProductImages/game1.jpg" alt="DragonAge" style="width:100%;">
+        <img src="../forms/ProductImages/game1.jpg" alt="DragonAge" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="./ProductImages/game2.jpg" alt="TheSims4" style="width:100%; height:695px">
+        <img src="../forms/ProductImages/game2.jpg" alt="TheSims4" style="width:100%; height:695px">
       </div>
     
       <div class="item">
-        <img src="./ProductImages/game3.jpg" alt="Bastion" style="width:100%; height:700px">
+        <img src="../forms/ProductImages/game3.jpg" alt="Bastion" style="width:100%; height:700px">
       </div>
       <div class="item">
-        <img src="./ProductImages/game4.jpg" alt="Skyrim" style="width:100%; height:700px">
+        <img src="../forms/ProductImages/game4.jpg" alt="Skyrim" style="width:100%; height:700px">
       </div>
     </div>
 
@@ -42,12 +41,11 @@ include_once 'Header.php';
     </a>
     <h5 class="titleh5">FEATURED & RECOMMENDED</h5>
   </div>
-            </div>
-           
-            
-          </div>
-        </div>
-      </section>
+</div>
+</div>
+</div>
+</section>
+
       <!--The Products with cattegories-->
       <div class="select">
         <select name="format" id="format" style="color:white;">
@@ -62,14 +60,15 @@ include_once 'Header.php';
         </select>
       </div>
      <section class="horror">
-       <div class="container">
+       <div class="container-fluid">
          <div class="title-box">
            <h2>Horror</h2>
          </div>
-         <div class="row">
+         <div class="row" style="background-color:#000d10; padding-bottom:15px;">
+         <div class="carousel" data-flickity>
            <div class="col-md-3">
-             <div class="product-top">
-               <img src="./ProductImages/game13.jpg">
+             <div class="product-top"style="padding-top:15px;">
+             <a href="Product.php"><img src="../forms/ProductImages/game13.jpg"></a>
                <div class="overlay-right">
                </div>
              </div>
@@ -79,8 +78,8 @@ include_once 'Header.php';
              </div>
            </div>
            <div class="col-md-3">
-            <div class="product-top">
-              <img src="./ProductImages/game14.jpg">
+            <div class="product-top"style="padding-top:15px;">
+              <img src="../forms/ProductImages/game14.jpg">
               <div class="overlay-right">
               </div>
             </div>
@@ -90,8 +89,8 @@ include_once 'Header.php';
             </div>
           </div>
           <div class="col-md-3">
-            <div class="product-top">
-              <img src="./ProductImages/game15.png">
+            <div class="product-top"style="padding-top:15px;">
+              <img src="../forms/ProductImages/game15.png">
               <div class="overlay-right">
               </div>
             </div>
@@ -101,14 +100,15 @@ include_once 'Header.php';
             </div>
           </div>
           <div class="col-md-3">
-            <div class="product-top">
-              <img src="./ProductImages/game16.png">
+            <div class="product-top"style="padding-top:15px;">
+              <img src="../forms/ProductImages/game16.png">
               <div class="overlay-right">
               </div>
             </div>
             <div class="product-bottom text center">
              <h3>Soma</h3>
              <h5>$19.99</h5>
+</div>
             </div>
           </div>
          </div>
@@ -116,15 +116,16 @@ include_once 'Header.php';
      </section>
      
      <section class="RPG">
-      <div class="container">
+      <div class="container-fluid">
         
         <div class="title-box">
           <h2>RPG</h2>
         </div>
-        <div class="row">
+        <div class="row" style="background-color:#000d10;">
+        <div class="carousel" data-flickity>
           <div class="col-md-3">
-            <div class="product-top">
-              <img src="./ProductImages/game20.jpg">
+            <div class="product-top" style="padding-top:15px;">
+              <img src="../forms/ProductImages/game20.jpg">
               <div class="overlay-right">
               </div>
             </div>
@@ -134,8 +135,8 @@ include_once 'Header.php';
             </div>
           </div>
           <div class="col-md-3">
-           <div class="product-top">
-             <img src="./ProductImages/game21.png">
+           <div class="product-top"style="padding-top:15px;">
+             <img src="../forms/ProductImages/game21.png">
              <div class="overlay-right"></div>
            </div>
            <div class="product-bottom text center">
@@ -144,7 +145,7 @@ include_once 'Header.php';
            </div>
          </div>
          <div class="col-md-3">
-           <div class="product-top">
+           <div class="product-top"style="padding-top:15px;">
              <img src="./ProductImages/game22.png">
              <div class="overlay-right"></div>
            </div>
@@ -154,7 +155,7 @@ include_once 'Header.php';
            </div>
          </div>
          <div class="col-md-3">
-           <div class="product-top">
+           <div class="product-top"style="padding-top:15px;">
              <img src="./ProductImages/game23.jpg">
              <div class="overlay-right">
              </div>
@@ -162,10 +163,10 @@ include_once 'Header.php';
            <div class="product-bottom text center">
             <h3>Fallout 4</h3>
             <h5>$14.99</h5>
+</div>
            </div>
          </div>
         </div>
       </div>
     </section>
-    
-    <?php include_once 'Footer.html' ; ?>
+    <?php include_once 'Footer.html'; ?>

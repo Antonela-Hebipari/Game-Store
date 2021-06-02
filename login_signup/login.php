@@ -22,7 +22,8 @@ if(isset($_POST['submit'])){
     //if i am here that means that the user made no misttakes, so i log in the user
     if($login->loginUser()!==false){
         header("location: ../forms/LogInform.php?message2=ERROR");
-    } else{
+    } else if($_SESSION['Username']=='admin'){
+        header("location: ../admin/");
+    } else
         header("location: ../forms/Body.php?message2=Success");
-    }
 }

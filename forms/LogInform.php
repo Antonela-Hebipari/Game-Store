@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title> </title>
+
 	<link rel="stylesheet" href="style log in.css">	
 	<?php include_once 'Header.php';  ?>
-</head>
-<body>
+
 	<div class="loginbox">
 	
 		<h1 align="center" style="font-size: 40px"> Log In </h1>

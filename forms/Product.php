@@ -1,29 +1,20 @@
-<?php
+<?php include_once 'Header.php';  ?>
 
-readfile('Header.html');
-?>
-<head>
-<link rel="stylesheet" href="productstyle.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-<main class="container">
+<main class="container2">
  
   <!-- Left Column / Headphones Image -->
   <div class="left-column" style="margin-bottom:150px;">
-    <img src="game13.jpg">
+    <img src="./ProductImages/game13.jpg">
     <div class="product-description"style="margin-top:10px;" >
       
       <span>System Requirements :</span>
-      <p class="RAM" style="margin-top:30px;">RAM :</p>
-      <p class="GraphicCard">Graphic Card :</p>
-      <p class="Processor">Processor :</p>
-      <p class="OperationSystem">Operation System</p>
+      <p class="RAM" style="margin-top:30px;">RAM:</p>
+      <p class="GraphicCard">Graphic Card:</p>
+      <p class="Processor">Processor:</p>
+      <p class="OperationSystem">Operation System: </p>
     </div>
   </div>
- 
+
  
   <!-- Right Column -->
   <div class="right-column">
@@ -37,8 +28,8 @@ But their journey will not be straightforward as Mono and Six will face a galler
     </div>
     <div class="product-description">
       
-      <p class="ReleaseDate">Release Date :</p>
-      <p class="Quantity"> Quantity : </p>
+      <p class="ReleaseDate">Release Date:</p>
+      <p class="Quantity"> Quantity: </p>
 <!-- Product Pricing -->
 <div class="product-price">
       <span>USD $29.99</span>
@@ -47,6 +38,4 @@ But their journey will not be straightforward as Mono and Six will face a galler
   </div>
 </div>
 </main>
-    
-</body>
-<?php readfile('Footer.html');?>
+<?php include_once 'Footer.html'; ?>
