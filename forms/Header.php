@@ -7,6 +7,12 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+        <!-- Carousel-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
       </head>
     <body>
 
@@ -29,7 +35,7 @@
               <li>
                 <div class="container-fluid">
 
-                  <form class="d-flex login" style="margin-top: 10px;">
+                  <form class="d-flex login"  style="margin-top: 10px;">
                     <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search">
 
 
