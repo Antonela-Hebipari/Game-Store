@@ -64,7 +64,8 @@ $products= new Products($db);
         <form action="getgenre.php" method="get" onchange="submit();">
         <select name="genre" id="genre" style="color:white;">
           <option selected disabled>CATEGORIES</option>
-
+          
+          <option disabled>GAMES</option>
           <option value="Sport">Sport</option>
           <option value="Action">Action</option>
           <option value="Adventure">Adventure</option>
@@ -81,11 +82,26 @@ $products= new Products($db);
           <option value="Science fiction">Science fiction</option>
           <option value="Fantasy">Fantasy</option>
           <option value="Survival">Survival horror</option>
+
+          <option disabled>ACCESSORIES</option>
+          <option value="Keyboard">Keyboard</option>
+          <option value="Mouse">Mouse</option>
+          <option value="Headsets">Headsets</option>
+          <option value="Controller">Controller</option>
+          <option value="Gaming chair">Gaming chair</option>
+          <option value="Gaming surface">Gaming surface</option>
+          <option value="Webcam">Webcam</option>
+          <option value="Microphone">Microphone</option>
+          <option value="Gaming Glasses">Gaming Glasses</option>
+          <option value="Controller Charger">Controller Charger</option>
           </option>
         </select>
 </form>
 
-    </div>
+</div>
+
+<?php if(!isset($_SESSION['genre']) )  {  ?> 
+
      <section class="horror">
        <div class="container-fluid">
          <div class="title-box">
@@ -146,7 +162,7 @@ $products= new Products($db);
       <div class="container-fluid">
         
         <div class="title-box">
-          <h2>RPG</h2>
+          <h2>Action</h2>
         </div>
         <div class="row" style="background-color:#000d10;">
         <div class="carousel" data-flickity>
@@ -204,21 +220,35 @@ $products= new Products($db);
   </section>
     
 <?php 
+   }
+     else {
+       $products->genre= $_SESSION['genre']; 
+       $vl='';
+      if(isset($_SESSION['acc'])){
+        if($products->getAccessoriesByGenre()===true){
+          echo '<p> An error occurred...</p>';
+      }
+      $result = $products->getAccessoriesByGenre();
+      $genre=$products->acc_type_name;
+      $vl=$_SESSION['acc'];
 
-if($products->getGamesByGenre()===true){
-  echo '<p> An error occurred...</p>';
-}
+      unset($_SESSION['acc']);
 
-$result = $products->getGamesByGenre();
-//get row count
-$num= $result->rowCount();
+      } else {   
+        
+        if($products->getGamesByGenre()===true){
+          echo '<p> An error occurred...</p>';
+        }
+        $result = $products->getGamesByGenre();
+      }
+        
+        //get row count
+        $num= $result->rowCount();
 
 
 //check if any productss
 if($num>0){
 
-  if($products->genre!=''){
-  
 ?> 
 
 <section >
@@ -231,14 +261,6 @@ if($num>0){
 
 <?php
 
-
-
-
-  //products array
-  $products_arr=array();
-  $products_arr['data']=array();
-
-  //i wanna fetch it as an associative array
   while($row= $result-> fetch(PDO::FETCH_ASSOC)){
       //extract cuz i wanna use $title, $body etc and not $row['title'] etc
       extract($row);
@@ -261,6 +283,10 @@ if($num>0){
             file_put_contents('../forms/ProductImages2/'.$products_item['image_name'], base64_decode($encodedData));
             $image_name=$products_item['image_name'];
             
+            if($vl=='isacc'){ 
+              echo "<a href='Product.php?product_id=$product_id&isacc'> "."<img src='../forms/ProductImages2/$image_name'>". "</a>";
+
+            } else
             echo "<a href='Product.php?product_id=$product_id&isgame'> "."<img src='../forms/ProductImages2/$image_name'>". "</a>";
             ?>
 
@@ -269,13 +295,12 @@ if($num>0){
             </div>
             <div class="product-bottom text center">
              <h3><?php echo $product_name; ?> </h3>
-             <h5>‎<?php echo $price; ?></h5>
+             <h5> $‎<?php echo $price; ?></h5>
             </div>
           </div>
 
-<?php 
-      //push to "data"
-      array_push($products_arr['data'], $products_item);
+<?php  
+    unset ($_SESSION['genre']);
   } 
 }
 

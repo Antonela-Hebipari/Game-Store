@@ -90,7 +90,13 @@ if(isset($_GET['isgame'])) {
  
     <!-- Product Description -->
     <div class="product-description">
-      <span> <?php echo $product_arr['genre']; ?> </span>
+     <?php if(isset($_GET['isacc'])) { ?> 
+      <span> <?php echo $product_arr['acc_type_name']; ?> </span>
+
+      <?php }else {?>
+        <span> <?php echo $product_arr['genre']; ?> </span>
+        <?php }?>
+        
       <h1> <?php echo $product_arr['product_name']; ?> </h1>
       <?php echo '<p>'. $product_arr['description'].'</p>' ; ?>   
     </div>
