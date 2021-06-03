@@ -56,13 +56,14 @@ $products= new Products($db);
 </div>
 </div>
 </div>
+
 </section>
 
       <!--The Products with cattegories-->
       <div class="select">
-        <form action="Body.php" method="post">
+        <form action="getgenre.php" method="get" onchange="submit();">
         <select name="genre" id="genre" style="color:white;">
-          <option onChange="form.submit()" selected disabled>CATEGORIES</option>
+          <option selected disabled>CATEGORIES</option>
 
           <option value="Sport">Sport</option>
           <option value="Action">Action</option>
@@ -83,6 +84,7 @@ $products= new Products($db);
           </option>
         </select>
 </form>
+
     </div>
      <section class="horror">
        <div class="container-fluid">
@@ -171,6 +173,7 @@ $products= new Products($db);
             <h5>$9.89</h5>
            </div>
          </div>
+
          <div class="col-md-3">
            <div class="product-top"style="padding-top:15px;">
            <a href="Product.php?product_id=146&isgame"><img src="./ProductImages/game22.png"></a> 
@@ -181,32 +184,56 @@ $products= new Products($db);
             <h5>$19.99</h5>
            </div>
          </div>
+
          <div class="col-md-3">
            <div class="product-top"style="padding-top:15px;">
            <a href="Product.php?product_id=137&isgame"> <img src="./ProductImages/game23.jpg"></a> 
              <div class="overlay-right">
              </div>
            </div>
-           <div class="product-bottom text center">
+          <div class="product-bottom text center">
             <h3>Fallout 4</h3>
             <h5>$14.99</h5>
           </div>
+        </div>
+      
 
-
-
+      </div>   
+    </div>
+  </div>
+  </section>
+    
 <?php 
-$products->genre= isset($_POST['genre']) ? $_POST['genre'] : die();
+
 if($products->getGamesByGenre()===true){
   echo '<p> An error occurred...</p>';
 }
 
 $result = $products->getGamesByGenre();
-
 //get row count
 $num= $result->rowCount();
 
+
 //check if any productss
 if($num>0){
+
+  if($products->genre!=''){
+  
+?> 
+
+<section >
+       <div class="container-fluid">
+         <div class="title-box">
+           <h2><?php echo $products->genre; ?></h2>
+          </div>
+          <div class="row" style="background-color:#000d10; padding-bottom:15px;">
+         <div class="carousel" data-flickity>
+
+<?php
+
+
+
+
   //products array
   $products_arr=array();
   $products_arr['data']=array();
@@ -226,9 +253,9 @@ if($num>0){
       );
 ?>
 
-<div class="col-md-3">
-<div class="product-top" style="padding-top:15px;">
-            
+           <div class="col-md-3">
+             <div class="product-top"style="padding-top:15px;">
+          
             <?php 
             $encodedData =  base64_encode($products_item['image']);
             file_put_contents('../forms/ProductImages2/'.$products_item['image_name'], base64_decode($encodedData));
@@ -249,15 +276,15 @@ if($num>0){
 <?php 
       //push to "data"
       array_push($products_arr['data'], $products_item);
-  }
-  
+  } 
+}
+
 }
 ?>
 
            </div>
          </div>
         </div>
-      </div>
     </section>
 
     <?php include_once 'Footer.html'; ?>
