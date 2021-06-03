@@ -1,8 +1,4 @@
 <?php 
-//Headers
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
-
 include_once '../config/database.php';
 include_once '../models/getproducts.php';
 
@@ -31,6 +27,8 @@ if(isset($_GET['isgame'])) {
         'genre'=> $product->genre,
         'price'=> $product->price,
         'ram'=> $product->ram,
+        'quantity'=> $product->quantity,
+        'release_year'=> $product->release_year,
         'processor'=> $product->processor,
         'graphics_card'=> $product->graphics_card,
         'operating_system'=> $product->operating_system,

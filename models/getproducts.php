@@ -18,10 +18,13 @@ class Products{
     public $graphics_card;
     public $processor;
     public $operating_system;
-
+    public $release_year;
+    
+    public $quantity;
+    
     //if its an accessory
     public $acc_type_name;
-    public $quantity;
+    
 
     public function __construct($db){
         $this->conn=$db;
@@ -49,7 +52,7 @@ class Products{
         $result;
         //create query 
         $query='SELECT pr.product_name, pr.price, pr.description, pr.product_id, pr.image, pr.image_name,  
-        sf.ram, sf.graphics_card, sf.processor, sf.operating_system, vg.genre
+        sf.ram, sf.graphics_card, sf.processor, sf.operating_system, vg.genre, vg.release_year, vg.quantity 
         FROM  products pr JOIN software_requirements sf ON sf.product_id=pr.product_id JOIN video_games vg
         ON vg.product_id=pr.product_id WHERE pr.product_id=?;';
         
@@ -76,6 +79,8 @@ class Products{
         $this->image=$row['image'];
         $this->image_name=$row['image_name'];
         $this->ram=$row['ram'];
+        $this->quantity=$row['quantity'];
+        $this->release_year=$row['release_year'];
         $this->graphics_card=$row['graphics_card'];
         $this->processor=$row['processor'];
         $this->operating_system=$row['operating_system'];

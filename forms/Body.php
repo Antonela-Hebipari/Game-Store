@@ -1,4 +1,16 @@
-<?php include_once 'Header.php';  ?>
+<?php 
+include_once 'Header.php';
+include_once '../config/database.php';
+include_once '../models/getproducts.php';
+
+//instantiate db and connect
+$database= new database();
+$db= $database->connect();
+
+// instantiate blog post object
+$products= new Products($db);
+
+?>
 
 
 <div class="slider">
@@ -15,18 +27,18 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="../forms/ProductImages/game1.jpg" alt="DragonAge" style="width:100%;">
+      <a href='Product.php?product_id=140&isgame'> <img src="../forms/ProductImages/game1.jpg" alt="DragonAge" style="width:100%;"> </a>
       </div>
 
       <div class="item">
-        <img src="../forms/ProductImages/game2.jpg" alt="TheSims4" style="width:100%; height:695px">
+      <a href='Product.php?product_id=143&isgame'> <img src="../forms/ProductImages/game2.jpg" alt="TheSims4" style="width:100%; height:695px"> </a>
       </div>
     
       <div class="item">
-        <img src="../forms/ProductImages/game3.jpg" alt="Bastion" style="width:100%; height:700px">
+      <a href='Product.php?product_id=142&isgame'>  <img src="../forms/ProductImages/game3.jpg" alt="Bastion" style="width:100%; height:700px"> </a>
       </div>
       <div class="item">
-        <img src="../forms/ProductImages/game4.jpg" alt="Skyrim" style="width:100%; height:700px">
+      <a href='Product.php?product_id=135&isgame'>  <img src="../forms/ProductImages/game4.jpg" alt="Skyrim" style="width:100%; height:700px"> </a>
       </div>
     </div>
 
@@ -48,17 +60,30 @@
 
       <!--The Products with cattegories-->
       <div class="select">
-        <select name="format" id="format" style="color:white;">
-          <option selected disabled>CATEGORIES</option>
+        <form action="Body.php" method="post">
+        <select name="genre" id="genre" style="color:white;">
+          <option onChange="form.submit()" selected disabled>CATEGORIES</option>
 
-          <option value="Rpg">RPG</option>
-          <option value="Horror">Horror</option>
+          <option value="Sport">Sport</option>
+          <option value="Action">Action</option>
           <option value="Adventure">Adventure</option>
-          <option value="Survival">Survival</option>
-          <option value="Fighting">Fighting</option>
+          <option value="War">War</option>
+          <option value="First-person shooter">First-person shooter</option>
+          <option value="Simulation">Simulation</option>
+          <option value="Strategy">Strategy</option>
+          <option value="Arcade">Arcade</option>
+          <option value="Racing">Racing</option>
+          <option value="Role Playing">Role Playing</option>
+          <option value="Shooter">Shooter</option>
+          <option value="Horror">Horror</option>
+          <option value="Exploration">Exploration</option>
+          <option value="Science fiction">Science fiction</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Survival">Survival horror</option>
           </option>
         </select>
-      </div>
+</form>
+    </div>
      <section class="horror">
        <div class="container-fluid">
          <div class="title-box">
@@ -68,7 +93,7 @@
          <div class="carousel" data-flickity>
            <div class="col-md-3">
              <div class="product-top"style="padding-top:15px;">
-             <a href="Product.php"><img src="../forms/ProductImages/game13.jpg"></a>
+             <a href="Product.php?product_id=136&isgame"><img src="../forms/ProductImages/game13.jpg"></a>
                <div class="overlay-right">
                </div>
              </div>
@@ -79,18 +104,18 @@
            </div>
            <div class="col-md-3">
             <div class="product-top"style="padding-top:15px;">
-              <img src="../forms/ProductImages/game14.jpg">
+            <a href="Product.php?product_id=145&isgame"> <img src="../forms/ProductImages/game14.jpg"> </a>  
               <div class="overlay-right">
               </div>
             </div>
             <div class="product-bottom text center">
-             <h3>The Evil Withing</h3>
+             <h3>The Evil Within</h3>
              <h5>	$19.99</h5>
             </div>
           </div>
           <div class="col-md-3">
             <div class="product-top"style="padding-top:15px;">
-              <img src="../forms/ProductImages/game15.png">
+            <a href="Product.php?product_id=141&isgame"> <img src="../forms/ProductImages/game15.png"> </a> 
               <div class="overlay-right">
               </div>
             </div>
@@ -101,7 +126,7 @@
           </div>
           <div class="col-md-3">
             <div class="product-top"style="padding-top:15px;">
-              <img src="../forms/ProductImages/game16.png">
+            <a href="Product.php?product_id=139&isgame"><img src="../forms/ProductImages/game16.png"></a> 
               <div class="overlay-right">
               </div>
             </div>
@@ -123,9 +148,10 @@
         </div>
         <div class="row" style="background-color:#000d10;">
         <div class="carousel" data-flickity>
-          <div class="col-md-3">
+          
+        <div class="col-md-3">
             <div class="product-top" style="padding-top:15px;">
-              <img src="../forms/ProductImages/game20.jpg">
+            <a href="Product.php?product_id=144&isgame"> <img src="../forms/ProductImages/game20.jpg"> </a> 
               <div class="overlay-right">
               </div>
             </div>
@@ -134,9 +160,10 @@
              <h5>‎$59.99</h5>
             </div>
           </div>
+          
           <div class="col-md-3">
            <div class="product-top"style="padding-top:15px;">
-             <img src="../forms/ProductImages/game21.png">
+           <a href="Product.php?product_id=138&isgame"><img src="../forms/ProductImages/game21.png"></a> 
              <div class="overlay-right"></div>
            </div>
            <div class="product-bottom text center">
@@ -146,7 +173,7 @@
          </div>
          <div class="col-md-3">
            <div class="product-top"style="padding-top:15px;">
-             <img src="./ProductImages/game22.png">
+           <a href="Product.php?product_id=146&isgame"><img src="./ProductImages/game22.png"></a> 
              <div class="overlay-right"></div>
            </div>
            <div class="product-bottom text center">
@@ -156,17 +183,81 @@
          </div>
          <div class="col-md-3">
            <div class="product-top"style="padding-top:15px;">
-             <img src="./ProductImages/game23.jpg">
+           <a href="Product.php?product_id=137&isgame"> <img src="./ProductImages/game23.jpg"></a> 
              <div class="overlay-right">
              </div>
            </div>
            <div class="product-bottom text center">
             <h3>Fallout 4</h3>
             <h5>$14.99</h5>
-</div>
+          </div>
+
+
+
+<?php 
+$products->genre= isset($_POST['genre']) ? $_POST['genre'] : die();
+if($products->getGamesByGenre()===true){
+  echo '<p> An error occurred...</p>';
+}
+
+$result = $products->getGamesByGenre();
+
+//get row count
+$num= $result->rowCount();
+
+//check if any productss
+if($num>0){
+  //products array
+  $products_arr=array();
+  $products_arr['data']=array();
+
+  //i wanna fetch it as an associative array
+  while($row= $result-> fetch(PDO::FETCH_ASSOC)){
+      //extract cuz i wanna use $title, $body etc and not $row['title'] etc
+      extract($row);
+
+      $products_item=array(
+          'product_id'=> $product_id,
+          'genre'=> $genre,
+          'product_name'=> $product_name,
+          'price'=> $price,
+          'image_name'=> $image_name,
+          'image'=> $image
+      );
+?>
+
+<div class="col-md-3">
+<div class="product-top" style="padding-top:15px;">
+            
+            <?php 
+            $encodedData =  base64_encode($products_item['image']);
+            file_put_contents('../forms/ProductImages2/'.$products_item['image_name'], base64_decode($encodedData));
+            $image_name=$products_item['image_name'];
+            
+            echo "<a href='Product.php?product_id=$product_id&isgame'> "."<img src='../forms/ProductImages2/$image_name'>". "</a>";
+            ?>
+
+              <div class="overlay-right">
+              </div>
+            </div>
+            <div class="product-bottom text center">
+             <h3><?php echo $product_name; ?> </h3>
+             <h5>‎<?php echo $price; ?></h5>
+            </div>
+          </div>
+
+<?php 
+      //push to "data"
+      array_push($products_arr['data'], $products_item);
+  }
+  
+}
+?>
+
            </div>
          </div>
         </div>
       </div>
     </section>
+
     <?php include_once 'Footer.html'; ?>
