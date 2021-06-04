@@ -232,8 +232,6 @@ $products= new Products($db);
       $genre=$products->acc_type_name;
       $vl=$_SESSION['acc'];
 
-      unset($_SESSION['acc']);
-
       } else {   
         
         if($products->getGamesByGenre()===true){
@@ -300,6 +298,7 @@ if($num>0){
           </div>
 
 <?php  
+unset($_SESSION['acc']);
     unset ($_SESSION['genre']);
   } 
 }

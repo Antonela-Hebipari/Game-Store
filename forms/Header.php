@@ -37,8 +37,8 @@
               <li>
                 <div class="container-fluid">
 
-                  <form class="d-flex login"  style="margin-top: 10px;">
-                    <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search">
+                  <form action="searchresults.php" method="post"  class="d-flex login"  style="margin-top: 10px;">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search for anything" aria-label="Search">
 
 
                     <button class="btn btn-outline-success bg-dark" type="submit"><i class="fa fa-search"></i>
