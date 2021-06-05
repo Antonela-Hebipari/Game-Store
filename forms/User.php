@@ -1,4 +1,4 @@
-
+<?php include_once 'Header.php'; ?>
 <head>
 <style type="text/css">
 .bodii
@@ -52,8 +52,8 @@
 
 </style>
 </head>
+
 <?php 
-include_once 'Header.php';
 include_once '../config/database.php';
 
 $database= new database();
@@ -93,9 +93,9 @@ if(isset($_SESSION['User_ID'])){
 <div class="bodii">
 <div class="userboxi">
     <br><br>
-    <h1 align="left" style= "color:#66fcf1 "> Profile </h1>
+    <h1 style= "align:left;color:#66fcf1 "> Profile </h1>
     <br>
-	<form action="" method="post">
+	<form>
 		<p> Username: </p>
            <?php echo '<input type="text" name="username" value="'.$username.'" readonly>'; ?>    
             <p> Age: </p>

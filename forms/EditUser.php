@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
+<?php include_once 'Header.php'; ?>
 <style type="text/css">
 body
 {
@@ -54,11 +52,10 @@ body
 </style>
 
 </head>
-<body>
-<?php include_once 'Header.php'; ?>
+
 <div class="userbox">
-    <br><br>
-    <h1 align="left" style= "color:#66fcf1 "> Profile </h1>
+    <br><br><br><br>
+    <h1 style= "align: left;color:#66fcf1 "> Profile </h1>
     <br>
     <form action="changeuserdata.php" method="post">
     <p> Username: </p>
@@ -78,6 +75,3 @@ body
      
    <br><br> <br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br>
     <?php include_once 'Footer.html' ;  ?>  
-			
-</body>
-</html>

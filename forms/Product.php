@@ -112,6 +112,10 @@ if(isset($_GET['isgame'])) {
       <span class="shop-item-price"> <?php echo 'USD $'. $product_arr['price']; ?> </span>
       <button type="button" class="cart-btn" name="addToCart"> Add to cart </button> 
       
+      <form action="orderform.php" method="post">
+      <button type="submit" class="cart-btn" name="submit" > Buy </button> 
+      <?php $_SESSION['product_id']=$product->product_id; ?>
+      </form>
     </div>
   </div>
 </div>
