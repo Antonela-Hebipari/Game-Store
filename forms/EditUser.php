@@ -60,7 +60,7 @@ body
     <br><br>
     <h1 align="left" style= "color:#66fcf1 "> Profile </h1>
     <br>
-    <form>
+    <form action="changeuserdata.php" method="post">
     <p> Username: </p>
             <input type="text" name="username"  >
             <p> Age: </p>
@@ -69,14 +69,11 @@ body
 			<input type="email" name="email"  >
 			<p> Address </p>
 			<input type="text" name="address" >
-            <div class="button">
-            <form action="#" method="post">
-            <input  type="submit" name="submit" value="CHANGE">
+            <input type="submit" name="submit" value="CHANGE">
 </form>
 </div>
 
 </div>
-    </form>
     </div>
      
    <br><br> <br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br>

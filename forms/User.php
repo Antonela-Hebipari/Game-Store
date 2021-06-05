@@ -107,7 +107,12 @@ if(isset($_SESSION['User_ID'])){
             
 		</form>  
             <a  href="EditUser.php" class="submiti"> EDIT </a>
-  
+			
+			<?php 
+			if(isset($_GET['message2'])){
+				echo '<p style="color:#66fcf1;">'.$_GET['message2'].'</p>';
+			}
+			?>
     </div>
 	
 </div>
