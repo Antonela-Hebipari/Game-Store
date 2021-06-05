@@ -53,12 +53,9 @@
 </style>
 </head>
 <?php 
-include 'Header.php';
-
+include_once 'Header.php';
 include_once '../config/database.php';
-//include_once '../models/getproducts.php';
 
-//instantiate db and connect
 $database= new database();
 $conn= $database->connect(); 
 
@@ -119,8 +116,5 @@ if(isset($_SESSION['User_ID'])){
 } else header("location: ../forms/LogInform.php?message2=User%20Not%20Logged%20in");
 
 ?>
-
-
-
    <br><br> <br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br>
     <?php include_once 'Footer.html' ;  ?>  
