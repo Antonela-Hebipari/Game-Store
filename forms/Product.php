@@ -41,7 +41,6 @@ if(isset($_GET['isgame'])) {
       echo '<p> An error occurred...</p>';
   }
 
-  //create an array (cuz we want json data)
   $product_arr=array(
       'product_id'=> $product->product_id,
       'product_name'=> $product->product_name,
@@ -56,8 +55,8 @@ if(isset($_GET['isgame'])) {
 
 }
 
-
 ?>
+
 <script src="script.js" async></script>
 
 <main class="container2">
@@ -92,22 +91,16 @@ if(isset($_GET['isgame'])) {
  
     <!-- Product Description -->
     <div class="product-description">
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-      <span> <?php echo $product_arr['genre']; ?> </span>
-      <h1 class="shop-item-title"> <?php echo $product_arr['product_name']; ?> </h1>
-=======
->>>>>>> Stashed changes
-     <?php if(isset($_GET['isacc'])) { ?> 
+
+      <?php if(isset($_GET['isacc'])) { ?> 
       <span> <?php echo $product_arr['acc_type_name']; ?> </span>
 
       <?php }else {?>
         <span> <?php echo $product_arr['genre']; ?> </span>
         <?php }?>
-        
-      <h1> <?php echo $product_arr['product_name']; ?> </h1>
->>>>>>> 0d0164cee138a7444b18c7c9cf0d58c7ae8e31a5
+
+      <h1 class="shop-item-title"> <?php echo $product_arr['product_name']; ?> </h1>
+
       <?php echo '<p>'. $product_arr['description'].'</p>' ; ?>   
     </div>
     <div class="product-description">
@@ -117,11 +110,8 @@ if(isset($_GET['isgame'])) {
 <!-- Product Pricing -->
 <div class="product-price">
       <span class="shop-item-price"> <?php echo 'USD $'. $product_arr['price']; ?> </span>
-      <div class="cart-btn">
-      <form action="ShoppingCart.php" method="post">
-      <input type="button" onclick="addToCartClicked();" name="addToCart" value="Add to cart">
-      </form>
-      </div> 
+      <button type="button" class="cart-btn" name="addToCart"> Add to cart </button> 
+      
     </div>
   </div>
 </div>
