@@ -1,3 +1,4 @@
+
 <?php 
 include_once 'Header.php';  
 include_once '../config/database.php';
@@ -57,6 +58,7 @@ if(isset($_GET['isgame'])) {
 
 
 ?>
+<script src="script.js" async></script>
 
 <main class="container2">
  
@@ -67,8 +69,8 @@ if(isset($_GET['isgame'])) {
   file_put_contents('../forms/ProductImages2/'.$product_arr['image_name'], base64_decode($encodedData));
   $image_name=$product_arr['image_name'];
   
-  echo "<img src='../forms/ProductImages2/$image_name' style='width:500px; height:600px; margin-top:60px; border:groove #000'> ";
-  ?>
+    echo "<img src='../forms/ProductImages2/$image_name' style='width:500px; height:600px; margin-top:60px; border:groove #000'> " ;
+  ?> 
   
   <?php if(isset($_GET['isgame'])) { ?> 
     
@@ -90,6 +92,13 @@ if(isset($_GET['isgame'])) {
  
     <!-- Product Description -->
     <div class="product-description">
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+      <span> <?php echo $product_arr['genre']; ?> </span>
+      <h1 class="shop-item-title"> <?php echo $product_arr['product_name']; ?> </h1>
+=======
+>>>>>>> Stashed changes
      <?php if(isset($_GET['isacc'])) { ?> 
       <span> <?php echo $product_arr['acc_type_name']; ?> </span>
 
@@ -98,6 +107,7 @@ if(isset($_GET['isgame'])) {
         <?php }?>
         
       <h1> <?php echo $product_arr['product_name']; ?> </h1>
+>>>>>>> 0d0164cee138a7444b18c7c9cf0d58c7ae8e31a5
       <?php echo '<p>'. $product_arr['description'].'</p>' ; ?>   
     </div>
     <div class="product-description">
@@ -106,8 +116,12 @@ if(isset($_GET['isgame'])) {
       <p class="Quantity"> Quantity: <?php echo $product_arr['quantity']; ?> </p>
 <!-- Product Pricing -->
 <div class="product-price">
-      <span> <?php echo 'USD $'. $product_arr['price']; ?> </span>
-      <a href="#" class="cart-btn">Add to cart</a>
+      <span class="shop-item-price"> <?php echo 'USD $'. $product_arr['price']; ?> </span>
+      <div class="cart-btn">
+      <form action="ShoppingCart.php" method="post">
+      <input type="button" onclick="addToCartClicked();" name="addToCart" value="Add to cart">
+      </form>
+      </div> 
     </div>
   </div>
 </div>
