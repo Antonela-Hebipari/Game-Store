@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
+
 <head>
 <style type="text/css">
-body
+.bodii
 {
     margin: 0;
     padding: 0;
     background-color: #002930;
 
 }
-.userbox
+.userboxi
 		{
 			width: 440px;
 			height: 680px;
@@ -23,7 +22,7 @@ body
 			transform: translate(-50%,-50%);
 			padding: 70px 20px;
         }
-        .userbox p
+        .userboxi p
 		{
 			margin: 0;
 			padding: 0;
@@ -31,7 +30,7 @@ body
 			margin-left: 5px;
             
 		}
-		.userbox input
+		.userboxi input
 		{
 			width: 85%;
 			height: 35px;
@@ -43,7 +42,7 @@ body
 			
 			opacity: 0.7;
 		}
-        input[type="submit"]{
+        .submiti{
 		background-color: #116466;
 		font-size: 20px;
 		color: white;
@@ -52,35 +51,76 @@ body
 	}
 
 </style>
-
 </head>
-<body>
-<?php include_once 'Header.php'; ?>
-<div class="userbox">
+<?php 
+include 'Header.php';
+
+include_once '../config/database.php';
+//include_once '../models/getproducts.php';
+
+//instantiate db and connect
+$database= new database();
+$conn= $database->connect(); 
+
+if(isset($_SESSION['User_ID'])){
+    $query='SELECT usr.address, usr.username, usr.age, usr.email 
+        FROM  users usr WHERE usr.user_id=?;';
+        
+        //prepare statement 
+        $stmt= $conn->prepare($query);
+
+        //bind this id to the ? at the query
+        $stmt->bindParam(1, $_SESSION['User_ID']);
+        if(!$stmt->execute()){
+            echo json_encode(array(
+                'message'=> 'Error...'
+            ));
+        }
+
+        $row=$stmt->fetch(PDO::FETCH_ASSOC);
+
+        //set properties
+        $address=$row['address'];
+        $username=$row['username'];
+        $age=$row['age'];
+        $email=$row['email'];
+        
+        $user_arr=array(
+            'username'=> $username,
+            'address'=> $address,
+            'age'=> $age,
+            'email'=> $email
+        );
+    ?>
+
+<div class="bodii">
+<div class="userboxi">
     <br><br>
     <h1 align="left" style= "color:#66fcf1 "> Profile </h1>
     <br>
-    <form>
-    <p> Username: </p>
-            <input type="text" name="username" value='alesiaskenderas' readonly>
+	<form action="" method="post">
+		<p> Username: </p>
+           <?php echo '<input type="text" name="username" value="'.$username.'" readonly>'; ?>    
             <p> Age: </p>
-            <input type="text" name="age" value='22' readonly>
+			<?php echo '<input type="text" name="age" value="'.$age.'" readonly>'; ?> 
 			<p> Email: </p>
-			<input type="email" name="email" value='alesia.skenderas@gmail.com' readonly >
+			<?php echo '<input type="email" name="email" value="'.$email.'" readonly>'; ?> 
 			<p> Address </p>
-			<input type="text" name="address"value='Tirane' readonly >
-            <div class="button">
-            <form action="EditUser.php" method="post">
-            <input  type="submit" name="submit" value="EDIT">
-</form>
+			<?php echo '<input type="text" name="address" value="'.$address.'" readonly>'; ?> 
+            
+		</form>  
+            <a  href="EditUser.php" class="submiti"> EDIT </a>
+  
+    </div>
+	
 </div>
 
-</div>
-    </form>
-    </div>
-     
+	<?php
+} else header("location: ../forms/LogInform.php?message2=User%20Not%20Logged%20in");
+
+?>
+
+
+
    <br><br> <br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br>
     <?php include_once 'Footer.html' ;  ?>  
-			
-</body>
-</html>

@@ -14,7 +14,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
         <link rel="stylesheet" href="productstyle.css">
-
       </head>
     <body>
 
@@ -50,7 +49,7 @@
               <li class="nav-item">
                   <?php 
                 if(isset($_SESSION['Username'])){
-                  echo '<a class="nav-link active" aria-current="page" href="#">'.$_SESSION['Username'].'</a>';
+                  echo '<a class="nav-link active" aria-current="page" href="User.php">'.$_SESSION['Username'].'</a>';
                 } else echo '<a class="nav-link active" aria-current="page" href="LogInform.php"> Log In </a>';  
                 ?>
               </li>
