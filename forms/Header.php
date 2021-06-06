@@ -31,7 +31,7 @@
                   <a class="nav-link active" aria-current="page" href="Body.php">Home</a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link active" aria-current="page" href="#">About</a>
+                  <a class="nav-link active" aria-current="page" href="about.php">About</a>
                 </li>
               <li>
                 <div class="container-fluid">

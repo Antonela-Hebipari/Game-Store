@@ -106,7 +106,6 @@ if(isset($_GET['isgame'])) {
     <div class="product-description">
       
       <p class="ReleaseDate">Release Date: <?php echo $product_arr['release_year']; ?> </p>
-      <p class="Quantity"> Quantity: <?php echo $product_arr['quantity']; ?> </p>
 <!-- Product Pricing -->
 <div class="product-price">
       <span class="shop-item-price"> <?php echo 'USD $'. $product_arr['price']; ?> </span>
